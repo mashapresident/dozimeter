@@ -5,7 +5,6 @@
 class dosimeter_20{
     public:
       dosimeter_20(int pin);
-      timer counter(int *period = &_pin);
       void begin();
       void read_radiation();
       float calculate_radiation();
