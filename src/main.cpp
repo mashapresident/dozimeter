@@ -1,12 +1,22 @@
 #include <Arduino.h>
-#include "dosimeter_20.h"
-dosimeter_20 dos = dosimeter_20(7);
+#include "ArduinoLowPower.h"
+volatile int cpm = 0;
+
+void counter();
 
 void setup() {
     Serial.begin(9600);
-    dos.begin();
+    LowPower.attachInterruptWakeup(7, counter, RISING);
 }
 
 void loop() {
-    Serial.println(dos.get_cpm());
+    for (int i = 0; i< 60;i++) {
+        LowPower.deepSleep(1000);
+    }
+    Serial.println(cpm);
+    cpm = 0;
+}
+
+void counter() {
+    cpm++;
 }

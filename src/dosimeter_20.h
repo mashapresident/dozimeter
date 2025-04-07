@@ -13,15 +13,14 @@
 #include <iostream>
 #include <Arduino.h>
 #include <unistd.h>
+#include "ArduinoLowPower.h"
 
 class dosimeter_20{
 public:
     dosimeter_20(int pin);
     void begin();
     int get_cpm();
-    float get_radiation();
     void calculate_multitran();
-    static void keepAlive();
 private:
     float radiation_array[60];
     float SENS;
