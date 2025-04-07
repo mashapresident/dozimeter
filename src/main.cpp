@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include "dosimeter_20.h"
+dosimeter_20 dos = dosimeter_20(7);
 
 void setup() {
-    dosimeter_20 dos = dosimeter_20(7);
     Serial.begin(9600);
 }
 
