@@ -4,9 +4,9 @@ dosimeter_20 dos = dosimeter_20(7);
 
 void setup() {
     Serial.begin(9600);
+    dos.begin();
 }
 
 void loop() {
-    dos.begin();
-    Serial.println(dos.calculate_radiation());
+    Serial.println(dos.get_cpm());
 }
